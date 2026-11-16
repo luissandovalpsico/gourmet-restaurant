@@ -468,6 +468,7 @@
   "@context": "https://schema.org",
   "@type": "Restaurant",
   "name": "Fuego & Raíz",
+  "alternateName": "Fuego and Raiz",
   "description": "Comida plant-based gourmet en Montañita y Olón, Ecuador. Cocina de cercanía con productos de temporada, sin sustitutos industriales.",
   "url": "https://luissandovalpsico.github.io/gourmet-restaurant/",
   "servesCuisine": ["Plant-based", "Vegetariana", "Vegana", "Cocina de temporada"],
@@ -493,8 +494,64 @@
   },
   "hasMenu": {
     "@type": "Menu",
-    "name": "Carta de temporada",
-    "url": "https://luissandovalpsico.github.io/gourmet-restaurant/#menu"
+    "name": "Nuestra carta / Our menu",
+    "inLanguage": "es",
+    "url": "https://luissandovalpsico.github.io/gourmet-restaurant/#menu",
+    "hasMenuSection": [
+      {
+        "@type": "MenuSection",
+        "name": "Para compartir / To share",
+        "hasMenuItem": [
+          { "@type": "MenuItem", "name": "Champiñones de fuego", "alternateName": "Fire-roasted mushrooms", "offers": { "@type": "Offer", "price": "4", "priceCurrency": "USD" } },
+          { "@type": "MenuItem", "name": "Jalapeños del huerto gratinados", "alternateName": "Gratinated garden jalapeños", "offers": { "@type": "Offer", "price": "4", "priceCurrency": "USD" } },
+          { "@type": "MenuItem", "name": "Croquetas de autor", "alternateName": "Signature croquettes", "offers": { "@type": "Offer", "price": "5", "priceCurrency": "USD" } },
+          { "@type": "MenuItem", "name": "Hummus", "alternateName": "House hummus", "offers": { "@type": "Offer", "price": "3", "priceCurrency": "USD" } },
+          { "@type": "MenuItem", "name": "Baba ganoush", "alternateName": "Smoked aubergine baba ganoush", "offers": { "@type": "Offer", "price": "3", "priceCurrency": "USD" } },
+          { "@type": "MenuItem", "name": "Gazpacho", "alternateName": "Chilled tomato gazpacho", "offers": { "@type": "Offer", "price": "3", "priceCurrency": "USD" } }
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Platos de la casa / House dishes",
+        "hasMenuItem": [
+          { "@type": "MenuItem", "name": "Satay de la casa con arroz jazmín y plátano caramelizado", "alternateName": "House satay with jasmine rice and caramelised plantain", "offers": { "@type": "Offer", "price": "9", "priceCurrency": "USD" } },
+          { "@type": "MenuItem", "name": "Verduras en agridulce de la huerta", "alternateName": "Sweet-and-sour garden vegetables", "offers": { "@type": "Offer", "price": "7", "priceCurrency": "USD" } },
+          { "@type": "MenuItem", "name": "Curry Lemongrass tailandés", "alternateName": "Thai lemongrass curry", "offers": { "@type": "Offer", "price": "8", "priceCurrency": "USD" } },
+          { "@type": "MenuItem", "name": "Sichuan con arroz y sésamo", "alternateName": "Sichuan stir-fry with rice and sesame", "offers": { "@type": "Offer", "price": "8", "priceCurrency": "USD" } },
+          { "@type": "MenuItem", "name": "Quesadillas", "alternateName": "Plant-based quesadillas", "offers": { "@type": "Offer", "price": "7", "priceCurrency": "USD" } },
+          { "@type": "MenuItem", "name": "Hamburguesa de la casa", "alternateName": "House plant-based burger", "offers": { "@type": "Offer", "price": "8", "priceCurrency": "USD" } },
+          { "@type": "MenuItem", "name": "Burrito Tex-Mex", "alternateName": "Tex-Mex burrito", "offers": { "@type": "Offer", "price": "8", "priceCurrency": "USD" } },
+          { "@type": "MenuItem", "name": "Pizza Fuego & Raíz", "alternateName": "Fuego & Raíz signature pizza", "offers": { "@type": "Offer", "price": "10", "priceCurrency": "USD" } }
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Especiales de la semana / Weekly specials",
+        "hasMenuItem": [
+          { "@type": "MenuItem", "name": "Steak de coliflor con arroz, hummus y baba ganoush", "alternateName": "Cauliflower steak with rice, hummus and baba ganoush", "offers": { "@type": "Offer", "price": "10", "priceCurrency": "USD" } },
+          { "@type": "MenuItem", "name": "Rollitos fritos con arroz y gazpacho", "alternateName": "Crispy rolls with rice and gazpacho", "offers": { "@type": "Offer", "price": "8", "priceCurrency": "USD" } },
+          { "@type": "MenuItem", "name": "Pad thai", "alternateName": "Pad thai", "offers": { "@type": "Offer", "price": "8", "priceCurrency": "USD" } }
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Bebidas / Drinks",
+        "hasMenuItem": [
+          { "@type": "MenuItem", "name": "Jugos de temporada", "alternateName": "Seasonal juices", "offers": { "@type": "Offer", "price": "3", "priceCurrency": "USD" } },
+          { "@type": "MenuItem", "name": "Cerveza", "alternateName": "Beer", "offers": { "@type": "Offer", "price": "3", "priceCurrency": "USD" } },
+          { "@type": "MenuItem", "name": "Vino", "alternateName": "Wine", "offers": { "@type": "Offer", "price": "3", "priceCurrency": "USD" } },
+          { "@type": "MenuItem", "name": "Refrescos", "alternateName": "Soft drinks", "offers": { "@type": "Offer", "price": "2", "priceCurrency": "USD" } }
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Postres / Desserts",
+        "hasMenuItem": [
+          { "@type": "MenuItem", "name": "Cheesecake", "alternateName": "Cheesecake", "offers": { "@type": "Offer", "price": "5", "priceCurrency": "USD" } },
+          { "@type": "MenuItem", "name": "Brownie", "alternateName": "Brownie", "offers": { "@type": "Offer", "price": "4", "priceCurrency": "USD" } }
+        ]
+      }
+    ]
   },
   "openingHoursSpecification": [
     {
@@ -700,41 +757,41 @@
     <section id="recetas">
       <div class="wrap">
         <div class="section-head">
-          <span class="eyebrow">Recetas</span>
-          <h2>Para hacer en casa</h2>
-          <p>Tres recetas al mes, explicadas paso a paso y sin ingredientes imposibles.</p>
+          <span class="eyebrow" data-es="Recetas" data-en="Recipes">Recetas</span>
+          <h2 data-es="Para hacer en casa" data-en="To make at home">Para hacer en casa</h2>
+          <p data-es="Tres recetas al mes, explicadas paso a paso y sin ingredientes imposibles." data-en="Three recipes a month, explained step by step and no impossible ingredients.">Tres recetas al mes, explicadas paso a paso y sin ingredientes imposibles.</p>
         </div>
 
         <div class="recipes">
           <article class="recipe">
-            <div class="swatch a">Receta 1</div>
+            <div class="swatch a"><span data-es="Receta 1" data-en="Recipe 1">Receta 1</span></div>
             <div class="body">
-              <h3>Hummus de remolacha asada</h3>
-              <p>Un hummus de color intenso, dulce y terroso. Se hace en veinte minutos y aguanta tres días en la nevera.</p>
-              <span class="meta">Publicación pendiente</span>
+              <h3 data-es="Hummus de remolacha asada" data-en="Roasted beetroot hummus">Hummus de remolacha asada</h3>
+              <p data-es="Un hummus de color intenso, dulce y terroso. Se hace en veinte minutos y aguanta tres días en la nevera." data-en="An intense, sweet and earthy hummus. Ready in twenty minutes and keeps three days in the fridge.">Un hummus de color intenso, dulce y terroso. Se hace en veinte minutos y aguanta tres días en la nevera.</p>
+              <span class="meta" data-es="Publicación pendiente" data-en="Coming soon">Publicación pendiente</span>
             </div>
           </article>
 
           <article class="recipe">
-            <div class="swatch b">Receta 2</div>
+            <div class="swatch b"><span data-es="Receta 2" data-en="Recipe 2">Receta 2</span></div>
             <div class="body">
-              <h3>Curry de garbanzos y espinacas</h3>
-              <p>El plato de diario: especiado sin ser agresivo, barato y lleno de cosas buenas.</p>
-              <span class="meta">Publicación pendiente</span>
+              <h3 data-es="Curry de garbanzos y espinacas" data-en="Chickpea and spinach curry">Curry de garbanzos y espinacas</h3>
+              <p data-es="El plato de diario: especiado sin ser agresivo, barato y lleno de cosas buenas." data-en="The everyday dish: spiced without being aggressive, cheap and full of good things.">El plato de diario: especiado sin ser agresivo, barato y lleno de cosas buenas.</p>
+              <span class="meta" data-es="Publicación pendiente" data-en="Coming soon">Publicación pendiente</span>
             </div>
           </article>
 
           <article class="recipe">
-            <div class="swatch c">Receta 3</div>
+            <div class="swatch c"><span data-es="Receta 3" data-en="Recipe 3">Receta 3</span></div>
             <div class="body">
-              <h3>Granola de cacao y naranja</h3>
-              <p>Desayuno crujiente, sin azúcar añadido. El cacao y la ralladura hacen todo el trabajo.</p>
-              <span class="meta">Publicación pendiente</span>
+              <h3 data-es="Granola de cacao y naranja" data-en="Cacao and orange granola">Granola de cacao y naranja</h3>
+              <p data-es="Desayuno crujiente, sin azúcar añadido. El cacao y la ralladura hacen todo el trabajo." data-en="A crunchy breakfast with no added sugar. The cacao and the zest do all the work.">Desayuno crujiente, sin azúcar añadido. El cacao y la ralladura hacen todo el trabajo.</p>
+              <span class="meta" data-es="Publicación pendiente" data-en="Coming soon">Publicación pendiente</span>
             </div>
           </article>
         </div>
 
-        <p class="placeholder-note">
+        <p class="placeholder-note" data-es="Espacio reservado: aquí irán las recetas completas con ingredientes, tiempos y pasos." data-en="Reserved space: full recipes with ingredients, timings and steps will go here.">
           Espacio reservado: aquí irán las recetas completas con ingredientes, tiempos y pasos.
         </p>
       </div>
@@ -744,30 +801,30 @@
     <section id="articulos">
       <div class="wrap">
         <div class="section-head">
-          <span class="eyebrow">Artículos</span>
-          <h2>Sobre alimentación plant-based</h2>
-          <p>Textos breves sobre cocina, temporada y la manera de comer que nos interesa.</p>
+          <span class="eyebrow" data-es="Artículos" data-en="Articles">Artículos</span>
+          <h2 data-es="Sobre alimentación plant-based" data-en="On plant-based eating">Sobre alimentación plant-based</h2>
+          <p data-es="Textos breves sobre cocina, temporada y la manera de comer que nos interesa." data-en="Short texts on cooking, seasonality and the way of eating we care about.">Textos breves sobre cocina, temporada y la manera de comer que nos interesa.</p>
         </div>
 
         <div class="articles">
           <a class="article-row" href="#articulos">
-            <span class="date">Próximamente</span>
-            <h3>Comer de temporada sin volverse loco</h3>
-            <span class="more">Leer</span>
+            <span class="date" data-es="Próximamente" data-en="Soon">Próximamente</span>
+            <h3 data-es="Comer de temporada sin volverse loco" data-en="Eating seasonally without losing your mind">Comer de temporada sin volverse loco</h3>
+            <span class="more" data-es="Leer" data-en="Read">Leer</span>
           </a>
           <a class="article-row" href="#articulos">
-            <span class="date">Próximamente</span>
-            <h3>Proteína vegetal: qué se puede comer en una semana</h3>
-            <span class="more">Leer</span>
+            <span class="date" data-es="Próximamente" data-en="Soon">Próximamente</span>
+            <h3 data-es="Proteína vegetal: qué se puede comer en una semana" data-en="Plant protein: what to eat in a week">Proteína vegetal: qué se puede comer en una semana</h3>
+            <span class="more" data-es="Leer" data-en="Read">Leer</span>
           </a>
           <a class="article-row" href="#articulos">
-            <span class="date">Próximamente</span>
-            <h3>El sabor umami y por qué hace falta en la cocina vegetal</h3>
-            <span class="more">Leer</span>
+            <span class="date" data-es="Próximamente" data-en="Soon">Próximamente</span>
+            <h3 data-es="El sabor umami y por qué hace falta en la cocina vegetal" data-en="Umami and why plant cooking needs it">El sabor umami y por qué hace falta en la cocina vegetal</h3>
+            <span class="more" data-es="Leer" data-en="Read">Leer</span>
           </a>
         </div>
 
-        <p class="placeholder-note">
+        <p class="placeholder-note" data-es="Espacio reservado: estos títulos se enlazarán a sus artículos cuando estén escritos." data-en="Reserved space: these titles will link to their articles once written.">
           Espacio reservado: estos títulos se enlazarán a sus artículos cuando estén escritos.
         </p>
       </div>
@@ -778,10 +835,12 @@
     <section id="apertura">
       <div class="wrap">
         <div class="section-head">
-          <span class="eyebrow">Apertura</span>
-          <h2>Próximamente en Montañita y Olón</h2>
+          <span class="eyebrow" data-es="Apertura" data-en="Opening">Apertura</span>
+          <h2 data-es="Próximamente en Montañita y Olón" data-en="Coming soon to Montañita and Olón">Próximamente en Montañita y Olón</h2>
         </div>
-        <p style="max-width:62ch;font-weight:300;color:var(--ink-soft);">
+        <p style="max-width:62ch;font-weight:300;color:var(--ink-soft);"
+           data-es="Estamos preparando la cocina. Fuego &amp; Raíz abrirá sus puertas en Montañita, provincia de Santa Elena, con una segunda propuesta en Olón. Comida plant-based gourmet, de cercanía y con producto local, pensada para quienes buscan calidad en cada plato —no fritanga— tanto si vives en la zona como si estás de paso por la Ruta del Spondylus."
+           data-en="We are getting the kitchen ready. Fuego &amp; Raíz will open its doors in Montañita, Santa Elena province, with a second proposal in Olón. Gourmet plant-based food, local and close to the source, for anyone looking for quality in every plate —not fried filler— whether you live here or are passing along the Spondylus Route.">
           Estamos preparando la cocina. Fuego &amp; Raíz abrirá sus puertas en
           <strong>Montañita, provincia de Santa Elena</strong>, con una segunda
           propuesta en <strong>Olón</strong>. Comida plant-based gourmet, de
@@ -789,12 +848,14 @@
           cada plato —no fritanga— tanto si vives en la zona como si estás de paso
           por la Ruta del Spondylus.
         </p>
-        <p style="max-width:62ch;font-weight:300;color:var(--ink-soft);margin-top:1rem;">
+        <p style="max-width:62ch;font-weight:300;color:var(--ink-soft);margin-top:1rem;"
+           data-es="Mientras tanto, escríbenos por WhatsApp y te avisamos el día que abramos, con la carta completa y las reservas disponibles."
+           data-en="In the meantime, write to us on WhatsApp and we will let you know the day we open, with the full menu and bookings available.">
           Mientras tanto, escríbenos por WhatsApp y te avisamos el día que
           abramos, con la carta completa y las reservas disponibles.
         </p>
         <p style="margin-top:1.6rem;">
-          <a class="btn btn-outline" href="https://wa.me/573135578578" target="_blank" rel="noopener">
+          <a class="btn btn-outline" href="https://wa.me/573135578578" target="_blank" rel="noopener" data-es="Avisadme cuando abráis" data-en="Let me know when you open">
             Avisadme cuando abráis
           </a>
         </p>
@@ -804,12 +865,12 @@
     <!-- ===================== CONTACTO ===================== -->
     <section class="contacto" id="contacto">
       <div class="wrap">
-        <span class="eyebrow" style="color: rgba(255,255,255,0.75);">Contacto</span>
-        <h2>Reservas y consultas</h2>
-        <p>Escríbenos por WhatsApp y te decimos disponibilidad del día.</p>
+        <span class="eyebrow" style="color: rgba(255,255,255,0.75);" data-es="Contacto" data-en="Contact">Contacto</span>
+        <h2 data-es="Reservas y consultas" data-en="Bookings and enquiries">Reservas y consultas</h2>
+        <p data-es="Escríbenos por WhatsApp y te decimos disponibilidad del día." data-en="Write to us on WhatsApp and we will tell you today’s availability.">Escríbenos por WhatsApp y te decimos disponibilidad del día.</p>
         <a class="btn btn-primary" href="https://wa.me/573135578578" target="_blank" rel="noopener">
           <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.7 6.4L3 29l6.8-1.8c1.9 1 4 1.6 6.2 1.6 7.2 0 13-5.8 13-13S23.2 3 16 3z"/></svg>
-          Escribir por WhatsApp
+          <span data-es="Escribir por WhatsApp" data-en="Write on WhatsApp">Escribir por WhatsApp</span>
         </a>
       </div>
     </section>
@@ -819,7 +880,7 @@
   <!-- ===================== FOOTER ===================== -->
   <footer class="site">
     <div class="wrap inner">
-      <span>© <span id="year">2026</span> Fuego &amp; Raíz · Cocina plant-based</span>
+      <span>© <span id="year">2026</span> Fuego &amp; Raíz · <span data-es="Cocina plant-based" data-en="Plant-based cooking">Cocina plant-based</span></span>
       <span><a href="https://wa.me/573135578578" target="_blank" rel="noopener">+57 313 557 8578</a></span>
     </div>
   </footer>
