@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gourmet Restaurant — Cocina plant-based</title>
+<meta name="description" content="Cocina plant-based de temporada. Platos, recetas y artículos sobre alimentación consciente.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,700&family=Karla:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+  /* =========================================================
+     TOKENS
+     ========================================================= */
+  :root {
+    --cream: #FBF7F0;        /* fondo cálido */
+    --ink: #2E2A24;          /* texto principal */
+    --ink-soft: #6F675C;     /* texto secundario */
+    --green: #4E6B4A;        /* verde oliva */
+    --green-soft: #71896B;
+    --terra: #C0714F;        /* tierra / terracota */
+    --orange: #E2A23F;       /* naranja suave */
+    --line: #E7DFD2;
+    --card: #FFFFFF;
+    --serif: "Fraunces", Georgia, serif;
+    --sans: "Karla", system-ui, -apple-system, sans-serif;
+    --max: 1140px;
+  }
+
+  /* =========================================================
+     BASE
+     ========================================================= */
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection { background: var(--orange); color: #fff; }
+  :focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+
+  h1, h2, h3 { font-family: var(--serif); font-weight: 500; margin: 0; line-height: 1.15; }
+  p { margin: 0; }
+  a { color: inherit; }
+
+  .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
+
+  section { padding: clamp(3.5rem, 8vw, 6.5rem) 0; }
+
+  .eyebrow {
+    display: block;
+    margin-bottom: 0.9rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--terra);
+  }
+
+  .section-head h2 { font-size: clamp(1.7rem, 3.6vw, 2.6rem); margin-bottom: 1rem; }
+  .section-head p { color: var(--ink-soft); max-width: 56ch; font-weight: 300; }
+  .section-head { margin-bottom: 2.5rem; }
+
+  /* =========================================================
+     NAV
+     ========================================================= */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(251, 247, 240, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  nav ul {
+    display: flex;
+    justify-content: center;
+    gap: clamp(1rem, 4vw, 2.5rem);
+    margin: 0;
+    padding: 1rem 1rem;
+    list-style: none;
+  }
+
+  nav a {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ink-soft);
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+    transition: color 0.3s ease, border-color 0.3s ease;
+  }
+
+  nav a:hover, nav a:focus-visible { color: var(--green); border-bottom-color: var(--green); }
+
+  /* =========================================================
+     HERO
+     ========================================================= */
+  header.hero {
+    padding: clamp(4rem, 10vw, 7rem) 0 clamp(3rem, 7vw, 5rem);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Degradado suave de fondo */
+  header.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(60% 70% at 20% 10%, rgba(226, 162, 63, 0.10) 0%, transparent 60%),
+      radial-gradient(50% 60% at 85% 30%, rgba(78, 107, 74, 0.10) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  header.hero .wrap { position: relative; }
+
+  header.hero h1 {
+    font-size: clamp(2.4rem, 7vw, 5rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.2rem;
+  }
+
+  header.hero h1 em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--green);
+  }
+
+  header.hero .tagline {
+    max-width: 46ch;
+    margin: 0 auto 1.8rem;
+    font-size: clamp(1rem, 1.7vw, 1.15rem);
+    font-weight: 300;
+    color: var(--ink-soft);
+  }
+
+  .hero-line {
+    width: 64px;
+    height: 2px;
+    margin: 0 auto 2rem;
+    background: var(--terra);
+    border-radius: 2px;
+  }
+
+  /* =========================================================
+     BOTONES
+     ========================================================= */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    min-height: 52px;
+    padding: 0.9rem 1.9rem;
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.25s ease;
+  }
+
+  .btn-primary { background: var(--green); color: #fff; }
+  .btn-primary:hover, .btn-primary:focus-visible { background: #3f583c; transform: translateY(-2px); }
+
+  .btn-outline { background: transparent; color: var(--ink); border-color: var(--line); }
+  .btn-outline:hover, .btn-outline:focus-visible { border-color: var(--terra); color: var(--terra); }
+
+  .btn svg { width: 17px; height: 17px; fill: currentColor; }
+
+  /* =========================================================
+     MENÚ
+     ========================================================= */
+  .menu-grid { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
+
+  @media (min-width: 700px) { .menu-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .menu-grid { grid-template-columns: repeat(4, 1fr); } }
+
+  .dish {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 1.6rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    transition: border-color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
+  }
+
+  .dish:hover {
+    border-color: var(--green-soft);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(78, 107, 74, 0.10);
+  }
+
+  .dish .course {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--terra);
+  }
+
+  .dish h3 { font-size: 1.2rem; }
+
+  .dish p { font-size: 0.9rem; font-weight: 300; color: var(--ink-soft); flex: 1; }
+
+  .dish .price {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--green);
+  }
+
+  /* =========================================================
+     RECETAS
+     ========================================================= */
+  .recipes { display: grid; gap: 1.5rem; grid-template-columns: 1fr; }
+
+  @media (min-width: 860px) { .recipes { grid-template-columns: repeat(3, 1fr); } }
+
+  .recipe {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.35s ease;
+  }
+
+  .recipe:hover { border-color: var(--terra); }
+
+  /* Franja de color superior: sustituye a la foto mientras no haya una */
+  .recipe .swatch {
+    height: 140px;
+    display: grid;
+    place-items: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .swatch.a { background: linear-gradient(135deg, #71896B, #4E6B4A); }
+  .swatch.b { background: linear-gradient(135deg, #E2A23F, #C0714F); }
+  .swatch.c { background: linear-gradient(135deg, #C0714F, #8E4F36); }
+
+  .recipe .body { padding: 1.4rem; display: flex; flex-direction: column; gap: 0.6rem; flex: 1; }
+  .recipe h3 { font-size: 1.15rem; }
+  .recipe p { font-size: 0.9rem; font-weight: 300; color: var(--ink-soft); }
+  .recipe .meta { margin-top: auto; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--terra); }
+
+  /* =========================================================
+     ARTÍCULOS
+     ========================================================= */
+  .articles { display: grid; gap: 0; border-top: 1px solid var(--line); }
+
+  .article-row {
+    display: grid;
+    gap: 0.6rem 2rem;
+    padding: 1.6rem 0;
+    border-bottom: 1px solid var(--line);
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+
+  @media (min-width: 760px) {
+    .article-row { grid-template-columns: 140px 1fr auto; align-items: baseline; }
+  }
+
+  .article-row .date {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  .article-row h3 { font-size: 1.2rem; transition: color 0.3s ease; }
+  .article-row:hover h3 { color: var(--terra); }
+
+  .article-row .more { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green); }
+
+  /* Aviso de sección en preparación */
+  .placeholder-note {
+    margin-top: 2rem;
+    padding: 1.2rem 1.4rem;
+    border: 1px dashed var(--line);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--ink-soft);
+    background: rgba(255, 255, 255, 0.5);
+  }
+
+  /* =========================================================
+     BANDA DE CONTACTO
+     ========================================================= */
+  .contacto {
+    background: var(--green);
+    color: #fff;
+    text-align: center;
+    padding: clamp(3rem, 7vw, 5rem) 1.5rem;
+  }
+
+  .contacto h2 { font-size: clamp(1.6rem, 3.4vw, 2.3rem); margin-bottom: 0.9rem; }
+  .contacto p { color: rgba(255, 255, 255, 0.85); font-weight: 300; margin-bottom: 1.8rem; }
+  .contacto .btn-primary { background: var(--orange); color: #2E2A24; }
+  .contacto .btn-primary:hover { background: #f0b455; }
+
+  /* =========================================================
+     FOOTER
+     ========================================================= */
+  footer.site {
+    padding: 2.5rem 0 3rem;
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+  }
+
+  footer.site .inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer.site a { text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.3s ease, color 0.3s ease; }
+  footer.site a:hover { color: var(--terra); border-bottom-color: var(--terra); }
+
+  /* =========================================================
+     BOTÓN FLOTANTE WHATSAPP
+     ========================================================= */
+  .wa {
+    position: fixed;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    z-index: 50;
+    width: 56px; height: 56px;
+    display: grid; place-items: center;
+    background: #4E6B4A;
+    border-radius: 50%;
+    box-shadow: 0 6px 20px rgba(46, 42, 36, 0.28);
+    transition: transform 0.25s ease, background-color 0.25s ease;
+  }
+
+  .wa:hover { background: #3f583c; transform: scale(1.06); }
+  .wa svg { width: 27px; height: 27px; fill: #fff; }
+
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ===================== HERO ===================== -->
+  <header class="hero" id="inicio">
+    <div class="wrap">
+      <span class="eyebrow">Cocina de temporada</span>
+      <h1>Gourmet <em>Restaurant</em></h1>
+      <div class="hero-line"></div>
+      <p class="tagline">
+        Cocina plant-based, hecha con lo que la tierra da en cada estación.
+        Sin sustitutos industriales: solo plantas, fuego y tiempo.
+      </p>
+      <a class="btn btn-primary" href="#menu">Ver el menú</a>
+    </div>
+  </header>
+
+  <!-- ===================== NAV ===================== -->
+  <nav aria-label="Secciones">
+    <ul>
+      <li><a href="#menu">Menú</a></li>
+      <li><a href="#recetas">Recetas</a></li>
+      <li><a href="#articulos">Artículos</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- ===================== MENÚ ===================== -->
+    <section id="menu">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Menú</span>
+          <h2>Lo que hay hoy en la cocina</h2>
+          <p>Platos de ejemplo que puedes editar libremente. La carta cambia cada semana según la temporada.</p>
+        </div>
+
+        <div class="menu-grid">
+          <article class="dish">
+            <span class="course">Entrante</span>
+            <h3>Cremoso de calabaza al jengibre</h3>
+            <p>Calabaza asada, jengibre fresco, aceite de semillas tostadas y un toque de lima. Templado, no caliente.</p>
+            <span class="price">9 €</span>
+          </article>
+
+          <article class="dish">
+            <span class="course">Entrante</span>
+            <h3>Ensalada de lentejas y remolacha</h3>
+            <p>Lentejas pequeñas, remolacha encurtida en casa, hojas amargas y vinagreta de mostaza antigua.</p>
+            <span class="price">11 €</span>
+          </article>
+
+          <article class="dish">
+            <span class="course">Principal</span>
+            <h3>Risotto de setas y romero</h3>
+            <p>Arroz carnaroli, setas de temporada, caldo de verduras lento y mantequilla de anacardo.</p>
+            <span class="price">18 €</span>
+          </article>
+
+          <article class="dish">
+            <span class="course">Postre</span>
+            <h3>Tarta de pera y cardamomo</h3>
+            <p>Masa quebrada de centeno, pera confitada, crema de avena y un hilo de sirope de dátil.</p>
+            <span class="price">8 €</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== RECETAS ===================== -->
+    <section id="recetas">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Recetas</span>
+          <h2>Para hacer en casa</h2>
+          <p>Tres recetas al mes, explicadas paso a paso y sin ingredientes imposibles.</p>
+        </div>
+
+        <div class="recipes">
+          <article class="recipe">
+            <div class="swatch a">Receta 1</div>
+            <div class="body">
+              <h3>Hummus de remolacha asada</h3>
+              <p>Un hummus de color intenso, dulce y terroso. Se hace en veinte minutos y aguanta tres días en la nevera.</p>
+              <span class="meta">Publicación pendiente</span>
+            </div>
+          </article>
+
+          <article class="recipe">
+            <div class="swatch b">Receta 2</div>
+            <div class="body">
+              <h3>Curry de garbanzos y espinacas</h3>
+              <p>El plato de diario: especiado sin ser agresivo, barato y lleno de cosas buenas.</p>
+              <span class="meta">Publicación pendiente</span>
+            </div>
+          </article>
+
+          <article class="recipe">
+            <div class="swatch c">Receta 3</div>
+            <div class="body">
+              <h3>Granola de cacao y naranja</h3>
+              <p>Desayuno crujiente, sin azúcar añadido. El cacao y la ralladura hacen todo el trabajo.</p>
+              <span class="meta">Publicación pendiente</span>
+            </div>
+          </article>
+        </div>
+
+        <p class="placeholder-note">
+          Espacio reservado: aquí irán las recetas completas con ingredientes, tiempos y pasos.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== ARTÍCULOS ===================== -->
+    <section id="articulos">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Artículos</span>
+          <h2>Sobre alimentación plant-based</h2>
+          <p>Textos breves sobre cocina, temporada y la manera de comer que nos interesa.</p>
+        </div>
+
+        <div class="articles">
+          <a class="article-row" href="#articulos">
+            <span class="date">Próximamente</span>
+            <h3>Comer de temporada sin volverse loco</h3>
+            <span class="more">Leer</span>
+          </a>
+          <a class="article-row" href="#articulos">
+            <span class="date">Próximamente</span>
+            <h3>Proteína vegetal: qué se puede comer en una semana</h3>
+            <span class="more">Leer</span>
+          </a>
+          <a class="article-row" href="#articulos">
+            <span class="date">Próximamente</span>
+            <h3>El sabor umami y por qué hace falta en la cocina vegetal</h3>
+            <span class="more">Leer</span>
+          </a>
+        </div>
+
+        <p class="placeholder-note">
+          Espacio reservado: estos títulos se enlazarán a sus artículos cuando estén escritos.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACTO ===================== -->
+    <section class="contacto" id="contacto">
+      <div class="wrap">
+        <span class="eyebrow" style="color: rgba(255,255,255,0.75);">Contacto</span>
+        <h2>Reservas y consultas</h2>
+        <p>Escríbenos por WhatsApp y te decimos disponibilidad del día.</p>
+        <a class="btn btn-primary" href="https://wa.me/573135578578" target="_blank" rel="noopener">
+          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.7 6.4L3 29l6.8-1.8c1.9 1 4 1.6 6.2 1.6 7.2 0 13-5.8 13-13S23.2 3 16 3z"/></svg>
+          Escribir por WhatsApp
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site">
+    <div class="wrap inner">
+      <span>© <span id="year">2026</span> Gourmet Restaurant · Cocina plant-based</span>
+      <span><a href="https://wa.me/573135578578" target="_blank" rel="noopener">+57 313 557 8578</a></span>
+    </div>
+  </footer>
+
+  <!-- ===================== BOTÓN FLOTANTE ===================== -->
+  <a class="wa" href="https://wa.me/573135578578" aria-label="Escribir por WhatsApp" target="_blank" rel="noopener">
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.7 6.4L3 29l6.8-1.8c1.9 1 4 1.6 6.2 1.6 7.2 0 13-5.8 13-13S23.2 3 16 3zm0 23.6c-2 0-3.9-.5-5.5-1.5l-.4-.2-4 1.1 1.1-3.9-.3-.4c-1-1.7-1.6-3.7-1.6-5.7C5.3 10.1 10.1 5.3 16 5.3S26.7 10.1 26.7 16 21.9 26.6 16 26.6zm6-8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.1-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-2-1.8-2.3-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.7-.9-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.2.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.9-.8 2.1-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.2-.6-.4z"/>
+    </svg>
+    <span class="sr-only">WhatsApp</span>
+  </a>
+
+<script>
+  /* Año del footer */
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
