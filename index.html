@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gourmet Restaurant — Cocina plant-based</title>
+<title>Fuego &amp; Raíz — Cocina plant-based</title>
 <meta name="description" content="Cocina plant-based de temporada. Platos, recetas y artículos sobre alimentación consciente.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -374,6 +374,92 @@
     html { scroll-behavior: auto; }
     * { transition: none !important; }
   }
+
+  /* =========================================================
+     CARTA (lista con precios alineados)
+     ========================================================= */
+  .carta {
+    display: grid;
+    gap: 3rem 4rem;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 860px) {
+    .carta { grid-template-columns: repeat(2, 1fr); }
+    .carta-block:first-child { grid-column: 1 / -1; }
+  }
+
+  .carta-block { break-inside: avoid; }
+
+  .carta-title {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--green);
+    margin-bottom: 1rem;
+    padding-bottom: 0.7rem;
+    border-bottom: 1px solid var(--line);
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    letter-spacing: 0.14em;
+  }
+
+  .carta-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.85rem; }
+
+  .dish-line { display: flex; align-items: baseline; gap: 0.6rem; }
+
+  .dish-name { font-size: 1rem; font-weight: 400; color: var(--ink); line-height: 1.4; }
+
+  /* Guía punteada entre plato y precio */
+  .dish-dots {
+    flex: 1;
+    border-bottom: 1px dotted #cfc7b8;
+    transform: translateY(-4px);
+  }
+
+  .dish-price {
+    flex: 0 0 auto;
+    font-family: var(--serif);
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+
+  /* =========================================================
+     CONMUTADOR DE IDIOMA
+     ========================================================= */
+  .lang-switch {
+    position: fixed;
+    top: 0.75rem;
+    right: 0.75rem;
+    z-index: 60;
+    display: flex;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    overflow: hidden;
+    background: rgba(251, 247, 240, 0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .lang-switch button {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    padding: 0.45rem 0.75rem;
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  .lang-switch button[aria-pressed="true"] { background: var(--green); color: #fff; }
+  .lang-switch button:hover { color: var(--ink); }
+  .lang-switch button[aria-pressed="true"]:hover { color: #fff; }
 </style>
 
 <!-- ===================== DATOS ESTRUCTURADOS (Schema.org) ===================== -->
@@ -381,7 +467,7 @@
 {
   "@context": "https://schema.org",
   "@type": "Restaurant",
-  "name": "Gourmet Restaurant",
+  "name": "Fuego & Raíz",
   "description": "Comida plant-based gourmet en Montañita y Olón, Ecuador. Cocina de cercanía con productos de temporada, sin sustitutos industriales.",
   "url": "https://luissandovalpsico.github.io/gourmet-restaurant/",
   "servesCuisine": ["Plant-based", "Vegetariana", "Vegana", "Cocina de temporada"],
@@ -425,27 +511,31 @@
 </head>
 <body>
 
+  <!-- ===================== CONMUTADOR DE IDIOMA ===================== -->
+  <div class="lang-switch" role="group" aria-label="Idioma / Language">
+    <button type="button" id="btn-es" aria-pressed="true">ES</button>
+    <button type="button" id="btn-en" aria-pressed="false">EN</button>
+  </div>
+
+
   <!-- ===================== HERO ===================== -->
   <header class="hero" id="inicio">
     <div class="wrap">
-      <span class="eyebrow">Cocina de temporada</span>
-      <h1>Gourmet <em>Restaurant</em></h1>
+      <span class="eyebrow" data-es="Cocina de temporada" data-en="Seasonal cooking">Cocina de temporada</span>
+      <h1>Fuego <em>&amp; Raíz</em></h1>
       <div class="hero-line"></div>
-      <p class="tagline">
-        Cocina plant-based, hecha con lo que la tierra da en cada estación.
-        Sin sustitutos industriales: solo plantas, fuego y tiempo.
-      </p>
-      <a class="btn btn-primary" href="#menu">Ver el menú</a>
+      <p class="tagline" data-es="Cocina plant-based, hecha con lo que la tierra da en cada estación. Sin sustitutos industriales: solo plantas, fuego y tiempo." data-en="Plant-based cooking, made with what the land gives in each season. No industrial substitutes: just plants, fire and time.">Cocina plant-based, hecha con lo que la tierra da en cada estación. Sin sustitutos industriales: solo plantas, fuego y tiempo.</p>
+      <a class="btn btn-primary" href="#menu" data-es="Ver la carta" data-en="See the menu">Ver la carta</a>
     </div>
   </header>
 
   <!-- ===================== NAV ===================== -->
   <nav aria-label="Secciones">
     <ul>
-      <li><a href="#menu">Menú</a></li>
-      <li><a href="#recetas">Recetas</a></li>
-      <li><a href="#articulos">Artículos</a></li>
-      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="#menu" data-es="Carta" data-en="Menu">Carta</a></li>
+      <li><a href="#recetas" data-es="Recetas" data-en="Recipes">Recetas</a></li>
+      <li><a href="#articulos" data-es="Artículos" data-en="Articles">Artículos</a></li>
+      <li><a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a></li>
     </ul>
   </nav>
 
@@ -455,39 +545,153 @@
     <section id="menu">
       <div class="wrap">
         <div class="section-head">
-          <span class="eyebrow">Menú</span>
-          <h2>Lo que hay hoy en la cocina</h2>
-          <p>Platos de ejemplo que puedes editar libremente. La carta cambia cada semana según la temporada.</p>
+          <span class="eyebrow" data-es="Carta" data-en="Menu">Carta</span>
+          <h2 data-es="Nuestra carta" data-en="Our menu">Nuestra carta</h2>
+          <p data-es="Cocina plant-based de temporada. La carta cambia según lo que dé la huerta."
+             data-en="Seasonal plant-based cooking. The menu changes with what the garden gives.">Cocina plant-based de temporada. La carta cambia según lo que dé la huerta.</p>
         </div>
 
-        <div class="menu-grid">
-          <article class="dish">
-            <span class="course">Entrante</span>
-            <h3>Cremoso de calabaza al jengibre</h3>
-            <p>Calabaza asada, jengibre fresco, aceite de semillas tostadas y un toque de lima. Templado, no caliente.</p>
-            <span class="price">$9 USD</span>
-          </article>
-
-          <article class="dish">
-            <span class="course">Entrante</span>
-            <h3>Ensalada de lentejas y remolacha</h3>
-            <p>Lentejas pequeñas, remolacha encurtida en casa, hojas amargas y vinagreta de mostaza antigua.</p>
-            <span class="price">$11 USD</span>
-          </article>
-
-          <article class="dish">
-            <span class="course">Principal</span>
-            <h3>Risotto de setas y romero</h3>
-            <p>Arroz carnaroli, setas de temporada, caldo de verduras lento y mantequilla de anacardo.</p>
-            <span class="price">$18 USD</span>
-          </article>
-
-          <article class="dish">
-            <span class="course">Postre</span>
-            <h3>Tarta de pera y cardamomo</h3>
-            <p>Masa quebrada de centeno, pera confitada, crema de avena y un hilo de sirope de dátil.</p>
-            <span class="price">$8 USD</span>
-          </article>
+        <div class="carta">
+        <div class="carta-block">
+          <h3 class="carta-title" data-es="Para compartir" data-en="To share">Para compartir</h3>
+          <ul class="carta-list">
+            <li class="dish-line">
+              <span class="dish-name" data-es="Champiñones de fuego" data-en="Fire mushrooms">Champiñones de fuego</span>
+              <span class="dish-dots" aria-hidden="true"></span>
+              <span class="dish-price" data-es="Consultar" data-en="Ask">Consultar</span>
+            </li>
+            <li class="dish-line">
+              <span class="dish-name" data-es="Jalapeños del huerto gratinados" data-en="Garden jalapeños, gratinated">Jalapeños del huerto gratinados</span>
+              <span class="dish-dots" aria-hidden="true"></span>
+              <span class="dish-price" data-es="Consultar" data-en="Ask">Consultar</span>
+            </li>
+            <li class="dish-line">
+              <span class="dish-name" data-es="Croquetas de autor" data-en="House croquettes">Croquetas de autor</span>
+              <span class="dish-dots" aria-hidden="true"></span>
+              <span class="dish-price" data-es="Consultar" data-en="Ask">Consultar</span>
+            </li>
+            <li class="dish-line">
+              <span class="dish-name" data-es="Hummus" data-en="Hummus">Hummus</span>
+              <span class="dish-dots" aria-hidden="true"></span>
+              <span class="dish-price" data-es="Consultar" data-en="Ask">Consultar</span>
+            </li>
+            <li class="dish-line">
+              <span class="dish-name" data-es="Baba ganoush" data-en="Baba ganoush">Baba ganoush</span>
+              <span class="dish-dots" aria-hidden="true"></span>
+              <span class="dish-price" data-es="Consultar" data-en="Ask">Consultar</span>
+            </li>
+            <li class="dish-line">
+              <span class="dish-name" data-es="Gazpacho" data-en="Gazpacho">Gazpacho</span>
+              <span class="dish-dots" aria-hidden="true"></span>
+              <span class="dish-price" data-es="Consultar" data-en="Ask">Consultar</span>
+            </li>
+          </ul>
+        </div>
+        <div class="carta-block">
+          <h3 class="carta-title" data-es="Platos de la casa" data-en="House dishes">Platos de la casa</h3>
+          <ul class="carta-list">
+            <li class="dish-line">
+              <span class="dish-name" data-es="Satay de la casa con arroz jazmín y plátano caramelizado" data-en="House satay with jasmine rice and caramelised plantain">Satay de la casa con arroz jazmín y plátano caramelizado</span>
+              <span class="dish-dots" aria-hidden="true"></span>
+              <span class="dish-price" data-es="Consultar" data-en="Ask">Consultar</span>
+            </li>
+            <li class="dish-line">
+              <span class="dish-name" data-es="Verduras en agridulce de la huerta" data-en="Garden vegetables, sweet and sour">Verduras en agridulce de la huerta</span>
+              <span class="dish-dots" aria-hidden="true"></span>
+              <span class="dish-price" data-es="Consultar" data-en="Ask">Consultar</span>
+            </li>
+            <li class="dish-line">
+              <span class="dish-name" data-es="Curry Lemongrass tailandés" data-en="Thai lemongrass curry">Curry Lemongrass tailandés</span>
+              <span class="dish-dots" aria-hidden="true"></span>
+              <span class="dish-price" data-es="Consultar" data-en="Ask">Consultar</span>
+            </li>
+            <li class="dish-line">
+              <span class="dish-name" data-es="Sichuan con arroz y sésamo" data-en="Sichuan with rice and sesame">Sichuan con arroz y sésamo</span>
+              <span class="dish-dots" aria-hidden="true"></span>
+              <span class="dish-price" data-es="Consultar" data-en="Ask">Consultar</span>
+            </li>
+            <li class="dish-line">
+              <span class="dish-name" data-es="Quesadillas" data-en="Quesadillas">Quesadillas</span>
+              <span class="dish-dots" aria-hidden="true"></span>
+              <span class="dish-price" data-es="Consultar" data-en="Ask">Consultar</span>
+            </li>
+            <li class="dish-line">
+              <span class="dish-name" data-es="Hamburguesa de la casa" data-en="House burger">Hamburguesa de la casa</span>
+              <span class="dish-dots" aria-hidden="true"></span>
+              <span class="dish-price" data-es="Consultar" data-en="Ask">Consultar</span>
+            </li>
+            <li class="dish-line">
+              <span class="dish-name" data-es="Burrito Tex-Mex" data-en="Tex-Mex burrito">Burrito Tex-Mex</span>
+              <span class="dish-dots" aria-hidden="true"></span>
+              <span class="dish-price" data-es="Consultar" data-en="Ask">Consultar</span>
+            </li>
+            <li class="dish-line">
+              <span class="dish-name" data-es="Pizza Fuego &amp; Raíz" data-en="Fuego &amp; Raíz pizza">Pizza Fuego &amp; Raíz</span>
+              <span class="dish-dots" aria-hidden="true"></span>
+              <span class="dish-price" data-es="Consultar" data-en="Ask">Consultar</span>
+            </li>
+          </ul>
+        </div>
+        <div class="carta-block">
+          <h3 class="carta-title" data-es="Especiales de la semana" data-en="Weekly specials">Especiales de la semana</h3>
+          <ul class="carta-list">
+            <li class="dish-line">
+              <span class="dish-name" data-es="Steak de coliflor con arroz, hummus y baba ganoush" data-en="Cauliflower steak with rice, hummus and baba ganoush">Steak de coliflor con arroz, hummus y baba ganoush</span>
+              <span class="dish-dots" aria-hidden="true"></span>
+              <span class="dish-price" data-es="Consultar" data-en="Ask">Consultar</span>
+            </li>
+            <li class="dish-line">
+              <span class="dish-name" data-es="Rollitos fritos con arroz y gazpacho" data-en="Fried rolls with rice and gazpacho">Rollitos fritos con arroz y gazpacho</span>
+              <span class="dish-dots" aria-hidden="true"></span>
+              <span class="dish-price" data-es="Consultar" data-en="Ask">Consultar</span>
+            </li>
+            <li class="dish-line">
+              <span class="dish-name" data-es="Pad thai" data-en="Pad thai">Pad thai</span>
+              <span class="dish-dots" aria-hidden="true"></span>
+              <span class="dish-price" data-es="Consultar" data-en="Ask">Consultar</span>
+            </li>
+          </ul>
+        </div>
+        <div class="carta-block">
+          <h3 class="carta-title" data-es="Bebidas" data-en="Drinks">Bebidas</h3>
+          <ul class="carta-list">
+            <li class="dish-line">
+              <span class="dish-name" data-es="Jugos de temporada" data-en="Seasonal juices">Jugos de temporada</span>
+              <span class="dish-dots" aria-hidden="true"></span>
+              <span class="dish-price" data-es="Consultar" data-en="Ask">Consultar</span>
+            </li>
+            <li class="dish-line">
+              <span class="dish-name" data-es="Cerveza" data-en="Beer">Cerveza</span>
+              <span class="dish-dots" aria-hidden="true"></span>
+              <span class="dish-price" data-es="Consultar" data-en="Ask">Consultar</span>
+            </li>
+            <li class="dish-line">
+              <span class="dish-name" data-es="Vino" data-en="Wine">Vino</span>
+              <span class="dish-dots" aria-hidden="true"></span>
+              <span class="dish-price" data-es="Consultar" data-en="Ask">Consultar</span>
+            </li>
+            <li class="dish-line">
+              <span class="dish-name" data-es="Refrescos" data-en="Soft drinks">Refrescos</span>
+              <span class="dish-dots" aria-hidden="true"></span>
+              <span class="dish-price" data-es="Consultar" data-en="Ask">Consultar</span>
+            </li>
+          </ul>
+        </div>
+        <div class="carta-block">
+          <h3 class="carta-title" data-es="Postres" data-en="Desserts">Postres</h3>
+          <ul class="carta-list">
+            <li class="dish-line">
+              <span class="dish-name" data-es="Cheesecake" data-en="Cheesecake">Cheesecake</span>
+              <span class="dish-dots" aria-hidden="true"></span>
+              <span class="dish-price" data-es="Consultar" data-en="Ask">Consultar</span>
+            </li>
+            <li class="dish-line">
+              <span class="dish-name" data-es="Brownie" data-en="Brownie">Brownie</span>
+              <span class="dish-dots" aria-hidden="true"></span>
+              <span class="dish-price" data-es="Consultar" data-en="Ask">Consultar</span>
+            </li>
+          </ul>
+        </div>
         </div>
       </div>
     </section>
@@ -578,7 +782,7 @@
           <h2>Próximamente en Montañita y Olón</h2>
         </div>
         <p style="max-width:62ch;font-weight:300;color:var(--ink-soft);">
-          Estamos preparando la cocina. Gourmet Restaurant abrirá sus puertas en
+          Estamos preparando la cocina. Fuego &amp; Raíz abrirá sus puertas en
           <strong>Montañita, provincia de Santa Elena</strong>, con una segunda
           propuesta en <strong>Olón</strong>. Comida plant-based gourmet, de
           cercanía y con producto local, pensada para quienes buscan calidad en
@@ -615,7 +819,7 @@
   <!-- ===================== FOOTER ===================== -->
   <footer class="site">
     <div class="wrap inner">
-      <span>© <span id="year">2026</span> Gourmet Restaurant · Cocina plant-based</span>
+      <span>© <span id="year">2026</span> Fuego &amp; Raíz · Cocina plant-based</span>
       <span><a href="https://wa.me/573135578578" target="_blank" rel="noopener">+57 313 557 8578</a></span>
     </div>
   </footer>
@@ -631,6 +835,36 @@
 <script>
   /* Año del footer */
   document.getElementById("year").textContent = new Date().getFullYear();
+
+  /* =========================================================
+     CONMUTADOR DE IDIOMA (ES / EN)
+     ---------------------------------------------------------
+     Todo elemento con data-es / data-en cambia su texto.
+     El idioma se recuerda en localStorage.
+     ========================================================= */
+  (function () {
+    const btnEs = document.getElementById('btn-es');
+    const btnEn = document.getElementById('btn-en');
+
+    function aplicar(lang) {
+      document.querySelectorAll('[data-es][data-en]').forEach(el => {
+        const t = el.getAttribute('data-' + lang);
+        if (t !== null) el.textContent = t;
+      });
+      document.documentElement.lang = lang;
+      btnEs.setAttribute('aria-pressed', lang === 'es');
+      btnEn.setAttribute('aria-pressed', lang === 'en');
+      try { localStorage.setItem('lang', lang); } catch (e) {}
+    }
+
+    btnEs.addEventListener('click', () => aplicar('es'));
+    btnEn.addEventListener('click', () => aplicar('en'));
+
+    let guardado = 'es';
+    try { guardado = localStorage.getItem('lang') || 'es'; } catch (e) {}
+    if (guardado === 'en') aplicar('en');
+  })();
+
 </script>
 </body>
 </html>
