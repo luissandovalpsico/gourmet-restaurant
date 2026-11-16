@@ -375,6 +375,53 @@
     * { transition: none !important; }
   }
 </style>
+
+<!-- ===================== DATOS ESTRUCTURADOS (Schema.org) ===================== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Gourmet Restaurant",
+  "description": "Comida plant-based gourmet en Montañita y Olón, Ecuador. Cocina de cercanía con productos de temporada, sin sustitutos industriales.",
+  "url": "https://luissandovalpsico.github.io/gourmet-restaurant/",
+  "servesCuisine": ["Plant-based", "Vegetariana", "Vegana", "Cocina de temporada"],
+  "priceRange": "$$",
+  "currenciesAccepted": "USD",
+  "paymentAccepted": "Efectivo, Tarjeta, Transferencia",
+  "telephone": "+57 313 557 8578",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Montañita",
+    "addressRegion": "Santa Elena",
+    "addressCountry": "EC"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Montañita" },
+    { "@type": "City", "name": "Olón" },
+    { "@type": "AdministrativeArea", "name": "Santa Elena" }
+  ],
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -1.8333,
+    "longitude": -80.7500
+  },
+  "hasMenu": {
+    "@type": "Menu",
+    "name": "Carta de temporada",
+    "url": "https://luissandovalpsico.github.io/gourmet-restaurant/#menu"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "12:00",
+      "closes": "22:00"
+    }
+  ],
+  "acceptsReservations": "True"
+}
+</script>
+
 </head>
 <body>
 
@@ -518,6 +565,34 @@
 
         <p class="placeholder-note">
           Espacio reservado: estos títulos se enlazarán a sus artículos cuando estén escritos.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- ===================== PRÓXIMAMENTE / SEO LOCAL ===================== -->
+    <section id="apertura">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Apertura</span>
+          <h2>Próximamente en Montañita y Olón</h2>
+        </div>
+        <p style="max-width:62ch;font-weight:300;color:var(--ink-soft);">
+          Estamos preparando la cocina. Gourmet Restaurant abrirá sus puertas en
+          <strong>Montañita, provincia de Santa Elena</strong>, con una segunda
+          propuesta en <strong>Olón</strong>. Comida plant-based gourmet, de
+          cercanía y con producto local, pensada para quienes buscan calidad en
+          cada plato —no fritanga— tanto si vives en la zona como si estás de paso
+          por la Ruta del Spondylus.
+        </p>
+        <p style="max-width:62ch;font-weight:300;color:var(--ink-soft);margin-top:1rem;">
+          Mientras tanto, escríbenos por WhatsApp y te avisamos el día que
+          abramos, con la carta completa y las reservas disponibles.
+        </p>
+        <p style="margin-top:1.6rem;">
+          <a class="btn btn-outline" href="https://wa.me/573135578578" target="_blank" rel="noopener">
+            Avisadme cuando abráis
+          </a>
         </p>
       </div>
     </section>
